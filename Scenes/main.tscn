@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://vuuocfbrclh5"]
+
+[ext_resource type="Script" path="res://src/Player.gd" id="1_whpnv"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ay347"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1vpo1"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_1vj4h"]
+
+[node name="Main" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_ay347")
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.60509, 0)
+script = ExtResource("1_whpnv")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
+shape = SubResource("CapsuleShape3D_1vpo1")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D"]
+mesh = SubResource("CapsuleMesh_1vj4h")
+
+[node name="Camera3D" type="Camera3D" parent="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 0.841511, 0.54024, 0, -0.54024, 0.841511, 0, 1.5, 1.5)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.781237, 0.624234, 0, -0.624234, 0.781237, 0, 3.61037, 4.70966)
